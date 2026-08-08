@@ -1,0 +1,18 @@
+{
+  "entity": {
+    "sensor": {
+      "driving_distance": {
+        "default": "mdi:car"
+      },
+      "walking_distance": {
+        "default": "mdi:walk"
+      },
+      "biking_distance": {
+        "default": "mdi:bike"
+      },
+      "transit_distance": {
+        "default": "mdi:bus"
+      }
+    }
+  }
+}

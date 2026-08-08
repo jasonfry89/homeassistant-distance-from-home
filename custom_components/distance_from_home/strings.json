@@ -1,0 +1,92 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to Google Routes API",
+        "description": "Enter a Google Cloud API key with the Routes API, Geocoding API, and Places API enabled. It will be used to calculate distances from your Home Assistant location.",
+        "data": {
+          "api_key": "API key"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Reauthenticate Distance from Home",
+        "description": "Your Google Routes API key is no longer valid. Enter a new one.",
+        "data": {
+          "api_key": "API key"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "The API key was rejected. Check that it is correct and that the Routes API and Geocoding API are enabled for it.",
+      "cannot_connect": "Could not connect to Google. Try again later."
+    },
+    "abort": {
+      "already_configured": "[%key:common::config_flow::abort::already_configured_device%]",
+      "reauth_successful": "[%key:common::config_flow::abort::reauth_successful%]"
+    }
+  },
+  "config_subentries": {
+    "location": {
+      "entry_type": "Location",
+      "initiate_flow": {
+        "user": "Add location",
+        "reconfigure": "Reconfigure location"
+      },
+      "step": {
+        "user": {
+          "title": "Add a location",
+          "description": "Find the Place ID with Google's Place ID finder: https://developers.google.com/maps/documentation/places/web-service/place-id",
+          "data": {
+            "name": "Name",
+            "place_id": "Place ID",
+            "driving": "Driving",
+            "walking": "Walking",
+            "biking": "Biking",
+            "transit": "Public transit"
+          },
+          "data_description": {
+            "place_id": "The Google Maps place ID, for example ChIJN1t_tDeuEmsRUsoyG83frY4.",
+            "name": "Optional. Leave blank to use the name Google has for the place."
+          }
+        },
+        "reconfigure": {
+          "title": "Reconfigure location",
+          "description": "Update the destination Place ID and travel modes.",
+          "data": {
+            "name": "Name",
+            "place_id": "Place ID",
+            "driving": "Driving",
+            "walking": "Walking",
+            "biking": "Biking",
+            "transit": "Public transit"
+          }
+        }
+      },
+      "error": {
+        "no_modes_selected": "Select at least one travel mode.",
+        "invalid_place_id": "Could not compute a route to this Place ID. Check that it is correct.",
+        "invalid_auth": "The API key was rejected.",
+        "name_lookup_failed": "Could not look up a name for this Place ID from Google. Enter a name manually."
+      },
+      "abort": {
+        "reconfigure_successful": "[%key:common::config_flow::abort::reconfigure_successful%]"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "driving_distance": {
+        "name": "Driving distance"
+      },
+      "walking_distance": {
+        "name": "Walking distance"
+      },
+      "biking_distance": {
+        "name": "Biking distance"
+      },
+      "transit_distance": {
+        "name": "Public transit distance"
+      }
+    }
+  }
+}

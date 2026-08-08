@@ -1,0 +1,10 @@
+{
+  "domain": "distance_from_home",
+  "name": "Distance from Home",
+  "config_flow": true,
+  "integration_type": "hub",
+  "iot_class": "cloud_polling",
+  "single_config_entry": true,
+  "requirements": [],
+  "version": "1.0.0"
+}
