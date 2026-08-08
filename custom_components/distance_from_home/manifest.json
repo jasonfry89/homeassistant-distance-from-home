@@ -1,10 +1,13 @@
 {
   "domain": "distance_from_home",
   "name": "Distance from Home",
+  "codeowners": ["@jasonfry89"],
   "config_flow": true,
+  "documentation": "https://github.com/jasonfry89/homeassistant-distance-from-home",
   "integration_type": "hub",
   "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/jasonfry89/homeassistant-distance-from-home/issues",
   "single_config_entry": true,
   "requirements": [],
-  "version": "1.0.0"
+  "version": "0.1.0"
 }
