@@ -125,6 +125,9 @@ class DistanceFromHomeConfigFlow(ConfigFlow, domain=DOMAIN):
 class LocationSubentryFlowHandler(ConfigSubentryFlow):
     """Handle adding and reconfiguring a location subentry."""
 
+    description_placeholders = dict(
+        google_places_website="https://developers.google.com/maps/documentation/places/web-service/place-id")
+
     async def _async_validate_and_resolve_title(
             self, user_input: dict[str, Any]
     ) -> tuple[str | None, dict[str, str]]:
@@ -182,7 +185,10 @@ class LocationSubentryFlowHandler(ConfigSubentryFlow):
             data_schema = self.add_suggested_values_to_schema(data_schema, user_input)
 
         return self.async_show_form(
-            step_id="user", data_schema=data_schema, errors=errors
+            step_id="user",
+            data_schema=data_schema,
+            errors=errors,
+            description_placeholders=self.description_placeholders
         )
 
     async def async_step_reconfigure(
@@ -204,5 +210,8 @@ class LocationSubentryFlowHandler(ConfigSubentryFlow):
         data_schema = self.add_suggested_values_to_schema(LOCATION_SCHEMA, suggested)
 
         return self.async_show_form(
-            step_id="reconfigure", data_schema=data_schema, errors=errors
+            step_id="reconfigure",
+            data_schema=data_schema,
+            errors=errors,
+            description_placeholders=self.description_placeholders
         )

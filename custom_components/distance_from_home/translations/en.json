@@ -35,7 +35,7 @@
       "step": {
         "user": {
           "title": "Add a location",
-          "description": "Find the Place ID with Google's Place ID finder: https://developers.google.com/maps/documentation/places/web-service/place-id",
+          "description": "Find the Place ID with Google's Place ID finder: {google_places_website}",
           "data": {
             "name": "Name",
             "place_id": "Place ID",
