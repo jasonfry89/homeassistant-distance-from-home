@@ -46,7 +46,7 @@ class DistanceSensor(CoordinatorEntity[DistanceUpdateCoordinator], SensorEntity)
     ) -> None:
         """Initialize the sensor."""
         super().__init__(coordinator)
-        self._key = f"{mode}"
+        self._key = f"{coordinator.title}_{mode}"
         self._attr_unique_id = self._key
         self._attr_translation_key = f"{mode}_distance"
         self._attr_device_info = DeviceInfo(
