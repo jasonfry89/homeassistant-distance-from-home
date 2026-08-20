@@ -22,4 +22,4 @@ TRAVEL_MODE_TO_API = {
     MODE_TRANSIT: "TRANSIT",
 }
 
-UPDATE_INTERVAL = timedelta(hours=12)
+UPDATE_INTERVAL = timedelta(days=7)
